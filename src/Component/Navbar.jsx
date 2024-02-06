@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Navbar = () => {
+    const [open,setopen]=useState(false);
+
   return (
     <div>
       <div className="bg-slate-800">
@@ -23,7 +25,7 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div className="bg-slate-800 text-white flex justify-end pr-3 block md:hidden">
+      <div onClick={()=> setopen(!open)} className="bg-slate-800 text-white flex justify-end py-3 block md:hidden">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -40,7 +42,7 @@ const Navbar = () => {
         </svg>
       </div>
 
-      <div className="bg-slate-800">
+      <div className= {`bg-slate-800  ${open?"block" :"hidden" }`}>
         <ul className=" flex flex-col justify-center gap-4 text-white py-4 font-serif items-center text-lg block md:hidden">
           <li>
             <a href="#">Home</a>
